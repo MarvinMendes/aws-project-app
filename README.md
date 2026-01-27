@@ -1,7 +1,3 @@
-Com certeza! Preparei um arquivo `README.md` estruturado, moderno e com descrições detalhadas para cada serviço, ideal para um portfólio de estudos.
-
----
-
 # ☁️ AWS Practice Lab
 
 Bem-vindo ao meu repositório de estudos de **Amazon Web Services (AWS)**. O objetivo deste projeto é documentar a implementação prática, configurações e integrações entre os principais serviços da nuvem da Amazon.
