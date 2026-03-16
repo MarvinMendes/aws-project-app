@@ -1,28 +1,41 @@
 package com.aws.project.controller;
 
 import com.aws.project.model.Product;
-import com.aws.project.repository.ProductRepository;
+import com.aws.project.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
-    private ProductRepository repo;
+    private ProductService service;
 
-    @PostMapping("/product")
-    public Product save(@RequestBody Product product) {
-        return repo.save(product);
+    @PostMapping
+    public Product createProduct(@RequestBody Product product) {
+        return service.createProduct(product);
     }
 
-    @GetMapping("/products")
-    public List<Product> getAll() {
-        return repo.findAll();
+    @GetMapping("/{id}")
+    public Product getProduct(@PathVariable String id) {
+        return service.getProduct(id);
+    }
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return service.getAllProducts();
+    }
+
+    @PutMapping
+    public Product updateProduct(@RequestBody Product product) {
+        return service.updateProduct(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable String id) {
+        service.deleteProduct(id);
     }
 }
